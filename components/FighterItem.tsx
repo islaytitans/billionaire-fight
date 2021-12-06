@@ -1,25 +1,27 @@
 import Fighter from "../types/Fighter";
 import Image from "next/image";
 
-const FighterItem: React.FC<Fighter> = (fighter) => {
-  console.log(fighter);
+const FighterItem: React.FC<Fighter> = (props) => {
+  console.log(props);
 
   return (
-    <li>
-      <figure>
+    <li className="flex flex-col">
+      <figure className='relative'>
         <Image
-          src={fighter.image}
-          width={300}
-          height={300}
-          alt={fighter.name}
+          src={props.fighter.image || ''}
+          width={700}
+          height={500}
+          alt={props.fighter.name}
+          layout="responsive"
         />
       </figure>
-      <h2>{fighter.name}</h2>
-      <i>{fighter.nickname}</i>
-      <div>
-        <span>Strength - {fighter.strength}</span>
-        <span>Defence - {fighter.defence}</span>
-        <span>Speed - {fighter.speed}</span>
+      <h2 className="text-3xl text-center">{props.fighter.name}</h2>
+      <i className="italic text-center">"{props.fighter.nickname}"</i>
+      <div className="flex flex-col">
+        <span>Strength - {props.fighter.strength}</span>
+        <span>Defence - {props.fighter.defence}</span>
+        <span>Speed - {props.fighter.speed}</span>
+        <span>Wealth - ${props.fighter.wealth}B</span>
       </div>
     </li>
   );

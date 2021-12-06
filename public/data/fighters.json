@@ -8,7 +8,7 @@
     "strength": 10,
     "defence": 10,
     "speed": 10,
-    "image": "images/fighters/Elon.jpeg"
+    "image": "/images/fighters/Elon.jpeg"
   },
   {
     "id": 2,
@@ -19,7 +19,7 @@
     "strength": 10,
     "defence": 10,
     "speed": 10,
-    "image": "images/fighters/Bill.jpeg"
+    "image": "/images/fighters/Bill.jpeg"
   },
   {
     "id": 3,
@@ -30,7 +30,7 @@
     "strength": 10,
     "defence": 10,
     "speed": 10,
-    "image": "images/fighters/Jeff.jpeg"
+    "image": "/images/fighters/Jeff.jpeg"
   },
   {
     "id": 4,
@@ -41,6 +41,6 @@
     "strength": 10,
     "defence": 10,
     "speed": 10,
-    "image": "images/fighters/Rich.jpeg"
+    "image": "/images/fighters/Rich.jpeg"
   }
 ]
