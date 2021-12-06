@@ -2,31 +2,45 @@
   {
     "id": 1,
     "name": "Elon Musk",
-    "nickname": "",
+    "nickname": "EM",
     "hitPoints": 100,
     "wealth": 200,
     "strength": 10,
     "defence": 10,
-    "speed": 10
+    "speed": 10,
+    "image": "images/fighters/Elon.jpeg"
   },
   {
     "id": 2,
     "name": "Bill Gates",
-    "nickname": "",
+    "nickname": "BG",
     "hitPoints": 100,
     "wealth": 200,
     "strength": 10,
     "defence": 10,
-    "speed": 10
+    "speed": 10,
+    "image": "images/fighters/Bill.jpeg"
   },
   {
     "id": 3,
     "name": "Jeff Bezos",
-    "nickname": "",
+    "nickname": "Jeffery Bezos",
     "hitPoints": 100,
     "wealth": 200,
     "strength": 10,
     "defence": 10,
-    "speed": 10
+    "speed": 10,
+    "image": "images/fighters/Jeff.jpeg"
+  },
+  {
+    "id": 4,
+    "name": "Richard Branson",
+    "nickname": "RB",
+    "hitPoints": 100,
+    "wealth": 200,
+    "strength": 10,
+    "defence": 10,
+    "speed": 10,
+    "image": "images/fighters/Rich.jpeg"
   }
 ]

@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import Fighter from "../types/figher";
-import FighterItem from "../components/FighterItem";
+import FightersGrid from "../components/FightersGrid";
 import useGetFightersService from "../services/useGetFightersService";
 
 const Fighters: NextPage = () => {
@@ -17,10 +16,7 @@ const Fighters: NextPage = () => {
 
       <div>
         {service.status === "loading" && <div>Loading</div>}
-        {service.status === "loaded" &&
-          service.payload.map((fighter: Fighter) => (
-              <FighterItem key={fighter.id} fighter={fighter} />
-          ))}
+        {service.status === "loaded" && <FightersGrid fighters={service.payload} />}
         {service.status === "error" && (
           <div>Error, failed to retrieve the fighters</div>
         )}

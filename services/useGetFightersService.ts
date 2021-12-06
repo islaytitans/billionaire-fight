@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Fighter from "../types/figher";
+import Fighter from "../types/Fighter";
 import { Service } from "../types/Service";
 
 const useGetFightersService = () => {

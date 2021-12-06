@@ -6,7 +6,8 @@ interface Fighter {
   wealth: number,
   strength: number,
   defence: number,
-  speed: number
+  speed: number,
+  image: string
 }
 
 export default Fighter;
