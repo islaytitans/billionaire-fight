@@ -12,10 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      
-      <div className="max-w-xs rounded overflow-hidden shadow-lg my-2">
-        <TitleCard title="Billionaire Bum Fight" />
-      </div>
+      <TitleCard title="Billionaire Bum Fight" />
     </div>
   );
 };
