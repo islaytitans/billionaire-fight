@@ -5,7 +5,7 @@ import TitleCard from "../components/TitleCard";
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen justify-center items-center">
+    <div className="flex min-h-screen justify-center items-center bg-red-600 text-yellow-300">
       <Head>
         <title>Billionaire Bum Fight</title>
         <meta name="description" content="Let them fight" />
