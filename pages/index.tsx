@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <TitleCard title="Billionaire Bum Fight" />
+      <TitleCard title="Billionaire Bum Fight" enterText="Press any key" />
     </div>
   );
 };

@@ -6,7 +6,7 @@ interface Props {
   enterText: string;
 }
 
-const TitleCard: React.FC<Props> = ({ title }) => {
+const TitleCard: React.FC<Props> = ({ title, enterText }) => {
   return (
     <section className="h-48 flex flex-col justify-around items-center">
       <figure className="pb-20 md:pb-80">
@@ -18,7 +18,7 @@ const TitleCard: React.FC<Props> = ({ title }) => {
         />
       </figure>
       <Link href="/fighters">
-        <a className="text-2xl md:text-4xl">Press any key</a>
+        <a className="text-2xl md:text-4xl">{enterText}</a>
       </Link>
     </section>
   );
