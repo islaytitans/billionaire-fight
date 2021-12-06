@@ -1,7 +1,12 @@
 import { NextPage } from "next";
 import Head from "next/head";
+import Fighter from "../types/figher";
+import FighterItem from "../components/FighterItem";
+import useGetFightersService from "../services/useGetFightersService";
 
 const Fighters: NextPage = () => {
+  const service = useGetFightersService();
+
   return (
     <div className="flex min-h-screen justify-center items-center">
       <Head>
@@ -10,8 +15,15 @@ const Fighters: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="max-w-xs rounded overflow-hidden shadow-lg my-2">
-        <h1>Pick your fighters</h1>
+      <div>
+        {service.status === "loading" && <div>Loading</div>}
+        {service.status === "loaded" &&
+          service.payload.map((fighter: Fighter) => (
+              <FighterItem key={fighter.id} fighter={fighter} />
+          ))}
+        {service.status === "error" && (
+          <div>Error, failed to retrieve the fighters</div>
+        )}
       </div>
     </div>
   );
