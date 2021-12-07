@@ -1,39 +1,43 @@
 import Fighter from "../types/Fighter";
 import Image from "next/image";
 
-const FighterItem: React.FC<Fighter> = (props) => {
-  console.log(props);
+type Props = {
+  fighter: Fighter;
+};
+
+const FighterItem: React.FC<Props> = ({ fighter }) => {
+  console.log(fighter);
 
   return (
     <li className="flex flex-col bg-gray-50 my-5 pb-3 rounded-xl shadow-lg">
       <figure className="relative mb-3">
         <Image
-          src={props.fighter.image || ""}
+          src={fighter.image || ""}
           width={700}
           height={500}
-          alt={props.fighter.name}
+          alt={fighter.name}
           layout="responsive"
         />
       </figure>
       <section className="flex flex-col px-3">
-        <h2 className="text-3xl text-center">{props.fighter.name}</h2>
-        <i className="italic text-center">"{props.fighter.nickname}"</i>
+        <h2 className="text-3xl text-center">{fighter.name}</h2>
+        <i className="italic text-center">"{fighter.nickname}"</i>
         <div className="flex flex-col pt-2">
           <span className="flex flex-row justify-between">
             <strong>Strength</strong>
-            <i>{props.fighter.strength}</i>
+            <i>{fighter.strength}</i>
           </span>
           <span className="flex flex-row justify-between">
             <strong>Defence</strong>
-            <i>{props.fighter.defence}</i>
+            <i>{fighter.defence}</i>
           </span>
           <span className="flex flex-row justify-between">
             <strong>Speed</strong>
-            <i>{props.fighter.speed}</i>
+            <i>{fighter.speed}</i>
           </span>
           <span className="flex flex-row justify-between">
             <strong>Wealth</strong>
-            <i>${props.fighter.wealth}B</i>
+            <i>${fighter.wealth}B</i>
           </span>
         </div>
       </section>
