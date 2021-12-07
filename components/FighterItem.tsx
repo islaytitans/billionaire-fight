@@ -21,7 +21,7 @@ const FighterItem: React.FC<Props> = ({ fighter }) => {
       </figure>
       <section className="flex flex-col px-3">
         <h2 className="text-3xl text-center">{fighter.name}</h2>
-        <i className="italic text-center">"{fighter.nickname}"</i>
+        <i className="italic text-center">&quot;{fighter.nickname}&quot;</i>
         <div className="flex flex-col pt-2">
           <span className="flex flex-row justify-between">
             <strong>Strength</strong>
