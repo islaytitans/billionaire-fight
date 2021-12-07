@@ -16,7 +16,9 @@ const Fighters: NextPage = () => {
 
       <div>
         {service.status === "loading" && <div>Loading</div>}
-        {service.status === "loaded" && <FightersGrid fighters={service.payload} />}
+        {service.status === "loaded" && (
+          <FightersGrid fighters={service.payload} />
+        )}
         {service.status === "error" && (
           <div>Error, failed to retrieve the fighters</div>
         )}

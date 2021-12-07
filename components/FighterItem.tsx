@@ -6,9 +6,9 @@ const FighterItem: React.FC<Fighter> = (props) => {
 
   return (
     <li className="flex flex-col">
-      <figure className='relative'>
+      <figure className="relative">
         <Image
-          src={props.fighter.image || ''}
+          src={props.fighter.image || ""}
           width={700}
           height={500}
           alt={props.fighter.name}
