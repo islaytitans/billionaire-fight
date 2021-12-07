@@ -1,10 +1,16 @@
 import { useContext } from "react";
-import Fighter from "../types/Fighter";
+import { PlayersContext } from "../context/PlayersContext";
 
 const SelectedFighters = () => {
-  // const players = useContext(PlayersContext);
+  const Players = useContext(PlayersContext);
 
-  return <h1>Choose your fighters</h1>;
+  return (
+    <section>
+      <h1>Choose your fighters</h1>
+      {Players.player1Id}
+      {Players.player2Id}
+    </section>
+  );
 };
 
 export default SelectedFighters;
