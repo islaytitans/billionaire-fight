@@ -1,13 +1,7 @@
 import Fighter from "../types/Fighter";
 import Image from "next/image";
 
-type Props = {
-  fighter: Fighter;
-};
-
-const FighterItem: React.FC<Props> = ({ fighter }) => {
-  console.log(fighter);
-
+const FighterItem = ({ fighter }: { fighter: Fighter }) => {
   return (
     <li className="flex flex-col bg-gray-50 my-5 pb-3 rounded-xl shadow-lg">
       <figure className="relative mb-3">

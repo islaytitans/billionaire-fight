@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Header: React.FC = () => {
+const Header = () => {
   return (
     <header className="flex justify-center bg-red-600 mb-4 py-1">
       <Image

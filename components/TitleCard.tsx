@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 
-interface Props {
+const TitleCard = ({
+  title,
+  enterText,
+}: {
   title: string;
   enterText: string;
-}
-
-const TitleCard: React.FC<Props> = ({ title, enterText }) => {
+}) => {
   return (
     <section className="h-48 flex flex-col justify-around items-center">
       <figure className="pb-20 md:pb-80">
