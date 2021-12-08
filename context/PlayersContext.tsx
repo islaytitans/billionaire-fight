@@ -1,11 +1,11 @@
-import React, { useState, useEffect, createContext } from "react";
+import { createContext } from "react";
 import Players from "../types/Players";
 
 export const defaultPlayerState = {
-  player1Id: 1,
-  player2Id: 3,
-  updatePlayer1: () => console.log("player1"),
-  updatePlayer2: () => console.log("player2"),
+  player1Id: null,
+  player2Id: null,
+  updatePlayer1: (fighterId: Number | null) => console.log(fighterId),
+  updatePlayer2: (fighterId: Number | null) => console.log(fighterId),
 };
 
 export const PlayersContext = createContext<Players>(defaultPlayerState);
