@@ -3,8 +3,8 @@ import Head from "next/head";
 import FightersGrid from "../components/FightersGrid";
 import useGetFightersService from "../services/useGetFightersService";
 import Header from "../components/Header";
-import { PlayersContext, defaultPlayerState } from "../context/PlayersContext";
 import SelectedFighters from "../components/SelectedFighters";
+import PlayersProvider from "../providers/PlayersProvider";
 
 const Fighters: NextPage = () => {
   const service = useGetFightersService();
@@ -19,7 +19,7 @@ const Fighters: NextPage = () => {
 
       <main>
         <Header />
-        <PlayersContext.Provider value={defaultPlayerState}>
+        <PlayersProvider>
           <div className="flex min-h-screen justify-center items-center">
             {service.status === "loading" && <div>Loading</div>}
             {service.status === "loaded" && (
@@ -32,7 +32,7 @@ const Fighters: NextPage = () => {
               <div>Error, failed to retrieve the fighters</div>
             )}
           </div>
-        </PlayersContext.Provider>
+        </PlayersProvider>
       </main>
     </div>
   );
