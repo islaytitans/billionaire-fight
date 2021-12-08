@@ -23,9 +23,13 @@ const FighterItem = ({ fighter }: { fighter: Fighter }) => {
 
   let selected;
   if (fighter.id === Players.player1Id) {
-    selected = <p>Player 1</p>;
+    selected = (
+      <p className="bg-red-600 text-center py-1 rounded-xl">Player 1</p>
+    );
   } else if (fighter.id === Players.player2Id) {
-    selected = <p>Player 2</p>;
+    selected = (
+      <p className="bg-yellow-300 text-center py-1 rounded-xl">Player 2</p>
+    );
   } else {
     selected = null;
   }
