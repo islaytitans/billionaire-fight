@@ -1,10 +1,9 @@
-import Fighter from "./Fighter";
 import Players from "./Players";
+import Roster from "./Roster";
 
 interface Game {
   players: Players;
-  fighters: Fighter[] | null;
-  updateFighters: (fighters: Fighter[] | null) => void;
+  roster: Roster;
 }
 
 export default Game;

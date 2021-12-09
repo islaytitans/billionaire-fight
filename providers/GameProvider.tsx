@@ -4,10 +4,11 @@ import Fighter from "../types/Fighter";
 
 const PlayersProvider: FC = ({ children }) => {
   const [fighters, setFighters] = useState<Fighter[] | null>(
-    defaultGameState.fighters
+    defaultGameState.roster.fighters
   );
 
-  const updateFighters = (fighters: Fighter[] | null) => {
+  const updateFighters = (fighters: Fighter[]) => {
+    console.log("here - updateFighters");
     setFighters(fighters);
   };
 
@@ -25,11 +26,24 @@ const PlayersProvider: FC = ({ children }) => {
     setPlayer2(fighterId);
   };
 
+  const getSelectedFighter1 = () => {
+    console.log("here - getSelectedFighter1");
+    return fighters?.find((x) => x.id === player1) ?? null;
+  };
+  const getSelectedFighter2 = () => {
+    console.log("here - getSelectedFighter2");
+    return fighters?.find((x) => x.id === player2) ?? null;
+  };
+
   return (
     <GameContext.Provider
       value={{
-        fighters: fighters,
-        updateFighters: updateFighters,
+        roster: {
+          fighters: fighters,
+          updateFighters: updateFighters,
+          getSelectedFighter1,
+          getSelectedFighter2,
+        },
         players: {
           player1Id: player1,
           player2Id: player2,
