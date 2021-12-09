@@ -12,6 +12,17 @@
   },
   {
     "id": 2,
+    "name": "Mark Zuckerberg",
+    "nickname": "Zuckbot",
+    "hitPoints": 100,
+    "wealth": 200,
+    "strength": 10,
+    "defence": 10,
+    "speed": 10,
+    "image": "/images/fighters/Zucker.jpg"
+  },
+  {
+    "id": 3,
     "name": "Bill Gates",
     "nickname": "BG",
     "hitPoints": 100,
@@ -22,7 +33,7 @@
     "image": "/images/fighters/Bill.jpeg"
   },
   {
-    "id": 3,
+    "id": 4,
     "name": "Jeff Bezos",
     "nickname": "Jeffery Bezos",
     "hitPoints": 100,
@@ -33,7 +44,7 @@
     "image": "/images/fighters/Jeff.jpeg"
   },
   {
-    "id": 4,
+    "id": 5,
     "name": "Richard Branson",
     "nickname": "RB",
     "hitPoints": 100,
