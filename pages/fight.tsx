@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
-import Header from "../components/Header";
 import PageTitle from "../components/PageTitle";
 import SelectedFighters from "../components/SelectedFighters";
 
@@ -15,7 +14,6 @@ const Fight: NextPage = () => {
       </Head>
 
       <main>
-        <Header />
         <div className="flex flex-col min-h-screen items-center">
           <PageTitle title="Let there be blood!" />
           <SelectedFighters />

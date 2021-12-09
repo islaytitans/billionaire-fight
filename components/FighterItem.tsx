@@ -48,6 +48,7 @@ const FighterItem = ({ fighter }: { fighter: Fighter }) => {
           height={500}
           alt={fighter.name}
           layout="responsive"
+          priority
         />
       </figure>
       <section className="flex flex-col px-3">
