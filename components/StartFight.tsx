@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { useContext } from "react";
-import { PlayersContext } from "../context/PlayersContext";
+import { GameContext } from "../context/GameContext";
 
 const StartFight = () => {
-  const Players = useContext(PlayersContext);
+  const Game = useContext(GameContext);
 
   const disableButton =
-    Players.player1Id === null || Players.player2Id === null;
+    Game.players.player1Id === null || Game.players.player2Id === null;
 
   return (
     <button

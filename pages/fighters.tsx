@@ -2,7 +2,6 @@ import { NextPage } from "next";
 import Head from "next/head";
 import FightersGrid from "../components/FightersGrid";
 import useGetFightersService from "../services/useGetFightersService";
-import SelectedFighters from "../components/SelectedFighters";
 import PageTitle from "../components/PageTitle";
 import StartFight from "../components/StartFight";
 
@@ -25,7 +24,6 @@ const Fighters: NextPage = () => {
             <div>
               <FightersGrid fighters={service.payload} />
               <StartFight />
-              <SelectedFighters />
             </div>
           )}
           {service.status === "error" && (

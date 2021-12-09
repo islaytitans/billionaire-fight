@@ -1,32 +1,32 @@
 import { MouseEvent, useContext } from "react";
 import Fighter from "../types/Fighter";
 import Image from "next/image";
-import { PlayersContext } from "../context/PlayersContext";
+import { GameContext } from "../context/GameContext";
 
 const FighterItem = ({ fighter }: { fighter: Fighter }) => {
-  const Players = useContext(PlayersContext);
+  const Game = useContext(GameContext);
 
   const handleOnClick = (e: MouseEvent<HTMLLIElement>) => {
     e.preventDefault();
     const fighterId = Number(e.currentTarget.dataset.id);
 
-    if (Players.player1Id === fighterId) {
-      Players.updatePlayer1(null);
-    } else if (Players.player2Id === fighterId) {
-      Players.updatePlayer2(null);
-    } else if (Players.player1Id === null) {
-      Players.updatePlayer1(fighterId);
+    if (Game.players.player1Id === fighterId) {
+      Game.players.updatePlayer1(null);
+    } else if (Game.players.player2Id === fighterId) {
+      Game.players.updatePlayer2(null);
+    } else if (Game.players.player1Id === null) {
+      Game.players.updatePlayer1(fighterId);
     } else {
-      Players.updatePlayer2(fighterId);
+      Game.players.updatePlayer2(fighterId);
     }
   };
 
   let selected;
-  if (fighter.id === Players.player1Id) {
+  if (fighter.id === Game.players.player1Id) {
     selected = (
       <p className="bg-red-600 text-center py-1 rounded-xl">Player 1</p>
     );
-  } else if (fighter.id === Players.player2Id) {
+  } else if (fighter.id === Game.players.player2Id) {
     selected = (
       <p className="bg-yellow-300 text-center py-1 rounded-xl">Player 2</p>
     );

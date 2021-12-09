@@ -1,12 +1,12 @@
 import { FC, Fragment } from "react";
 import Header from "../Header";
-import PlayersProvider from "../../providers/PlayersProvider";
+import GameProvider from "../../providers/GameProvider";
 
 const Layout: FC = ({ children }) => {
   return (
     <Fragment>
       <Header />
-      <PlayersProvider>{children}</PlayersProvider>
+      <GameProvider>{children}</GameProvider>
     </Fragment>
   );
 };
