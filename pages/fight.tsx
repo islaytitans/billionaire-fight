@@ -6,19 +6,19 @@ import SelectedFighters from "../components/SelectedFighters";
 import Ticker from "../components/match/Ticker";
 import useGetFightersService from "../services/useGetFightersService";
 import { GameContext } from "../context/GameContext";
+import Fighter from "../types/Fighter";
 
 const Fight: NextPage = () => {
   const service = useGetFightersService();
   const Game = useContext(GameContext);
 
-  const fighter1 =
-    service.status === "loaded"
-      ? service.payload.find((f) => f.id === Game.players.player1Id)
-      : null;
-  const fighter2 =
-    service.status === "loaded"
-      ? service.payload.find((f) => f.id === Game.players.player2Id)
-      : null;
+  function getFighter(
+    fighters: Fighter[],
+    playerId: Number | null
+  ): Fighter | null {
+    const fighter = fighters.find((f) => f.id === playerId);
+    return fighter || null;
+  }
 
   return (
     <div>
@@ -31,8 +31,19 @@ const Fight: NextPage = () => {
       <main>
         <div className="flex flex-col min-h-screen items-center">
           <PageTitle title="Let there be blood!" />
-          <Ticker fighter1={fighter1} fighter2={fighter2} />
-          <SelectedFighters />
+          {service.status === "loading" && <div>Loading</div>}
+          {service.status === "loaded" && (
+            <>
+              <Ticker
+                fighter1={getFighter(service.payload, Game.players.player1Id)}
+                fighter2={getFighter(service.payload, Game.players.player2Id)}
+              />
+              <SelectedFighters />
+            </>
+          )}
+          {service.status === "error" && (
+            <div>Error, failed to retrieve the fighters</div>
+          )}
         </div>
       </main>
     </div>

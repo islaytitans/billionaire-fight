@@ -1,5 +1,4 @@
-import { useContext, MouseEvent } from "react";
-import { GameContext } from "../../context/GameContext";
+import { MouseEvent, useEffect, useState } from "react";
 import Fighter, { getModifier } from "../../types/Fighter";
 
 const Ticker = ({
@@ -9,14 +8,23 @@ const Ticker = ({
   fighter1: Fighter | null;
   fighter2: Fighter | null;
 }) => {
-  const Game = useContext(GameContext);
+  const [fighter1Wealth, setFighter1Wealth] = useState<number | null>(
+    fighter1?.wealth ?? null
+  );
+  const [fighter2Wealth, setFighter2Wealth] = useState<number | null>(
+    fighter2?.wealth ?? null
+  );
 
   if (fighter1 === null || fighter2 === null) {
-    return <h1>No fighters selected</h1>;
+    return (
+      <section>
+        <h2>Two fighters need to be selected</h2>
+      </section>
+    );
   }
 
-  const fighter1SpeedModifier = getModifier(fighter1?.speed);
-  const fighter2SpeedModifier = getModifier(fighter2?.speed);
+  const fighter1SpeedModifier = getModifier(fighter1.speed);
+  const fighter2SpeedModifier = getModifier(fighter2.speed);
 
   const determineInitiative = () => {
     const fighter1Speed = Math.floor(Math.random() * 20 + 1);
@@ -46,18 +54,27 @@ const Ticker = ({
     e.preventDefault();
     const { attacker, defender } = determineInitiative();
 
-    fighter2.currentWealth = fighter2.currentWealth - 50;
-    console.log(fighter2);
+    if (attacker.id === fighter1.id) {
+      if (fighter2Wealth !== null) {
+        setFighter2Wealth(fighter2Wealth - 50);
+      }
+    } else {
+      if (fighter1Wealth !== null) {
+        setFighter1Wealth(fighter1Wealth - 50);
+      }
+    }
   };
 
   return (
     <>
-      <h1>Ticker</h1>
-      <h2>{fighter1?.nickname}</h2>
-      <p>{fighter1?.currentWealth}</p>
-      <h2>{fighter2?.nickname}</h2>
-      <p>{fighter2?.currentWealth}</p>
-      <button onClick={handleOnClick}>Next Round</button>
+      <section>
+        <h1>Ticker</h1>
+        <h2>{fighter1.nickname}</h2>
+        <p>{fighter1Wealth}</p>
+        <h2>{fighter2.nickname}</h2>
+        <p>{fighter2Wealth}</p>
+        <button onClick={handleOnClick}>Next Round</button>
+      </section>
     </>
   );
 };
