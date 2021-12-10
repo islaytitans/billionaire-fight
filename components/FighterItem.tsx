@@ -46,14 +46,19 @@ const FighterItem = ({ fighter }: { fighter: Fighter }) => {
           src={fighter.image || ""}
           width={700}
           height={500}
-          alt={fighter.name}
+          alt={fighter.firstName + " " + fighter.lastName}
           layout="responsive"
           priority
         />
       </figure>
       <section className="flex flex-col px-3">
-        <h2 className="text-3xl text-center">{fighter.name}</h2>
-        <i className="italic text-center">&quot;{fighter.nickname}&quot;</i>
+        <h2 className="text-3xl text-center">
+          {fighter.firstName +
+            ' "' +
+            fighter.nickname +
+            '" ' +
+            fighter.lastName}
+        </h2>
         <div className="flex flex-col pt-2">
           <span className="flex flex-row justify-between">
             <strong>Strength</strong>

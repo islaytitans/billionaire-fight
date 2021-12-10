@@ -1,9 +1,9 @@
 type Fighter = {
   id: number;
-  name: string;
+  firstName: string;
+  lastName: string;
   nickname: string;
   wealth: number;
-  currentWealth: number;
   strength: number;
   defence: number;
   speed: number;

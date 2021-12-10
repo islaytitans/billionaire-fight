@@ -2,7 +2,6 @@ import { NextPage } from "next";
 import Head from "next/head";
 import React, { useContext } from "react";
 import PageTitle from "../components/PageTitle";
-import SelectedFighters from "../components/SelectedFighters";
 import Ticker from "../components/match/Ticker";
 import useGetFightersService from "../services/useGetFightersService";
 import { GameContext } from "../context/GameContext";
@@ -24,13 +23,13 @@ const Fight: NextPage = () => {
     <div>
       <Head>
         <title>Billionaire Bum Fight</title>
-        <meta name="description" content="Let there be blood" />
+        <meta name="description" content="Beat the wealth out of each other" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <div className="flex flex-col min-h-screen items-center">
-          <PageTitle title="Let there be blood!" />
+          <PageTitle title="Beat the wealth out of each other!" />
           {service.status === "loading" && <div>Loading</div>}
           {service.status === "loaded" && (
             <>
@@ -38,7 +37,6 @@ const Fight: NextPage = () => {
                 fighter1={getFighter(service.payload, Game.players.player1Id)}
                 fighter2={getFighter(service.payload, Game.players.player2Id)}
               />
-              <SelectedFighters />
             </>
           )}
           {service.status === "error" && (
