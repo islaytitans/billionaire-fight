@@ -1,6 +1,8 @@
 import { MouseEvent, useState } from "react";
 import Link from "next/link";
 import Fighter, { getModifier } from "../../types/Fighter";
+import Attack from "../../types/Attack";
+import stringFormat from "../../extentions/stringFormat";
 
 const Ticker = ({
   fighter1,
@@ -64,7 +66,6 @@ const Ticker = ({
   };
 
   const determineWinner = () => {
-    debugger;
     let winner: Fighter | null = null;
     let loser: Fighter | null = null;
     if (fighter1Wealth !== null && fighter1Wealth <= 0) {
@@ -95,22 +96,42 @@ const Ticker = ({
     }
   };
 
-  const handleOnClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const determineAttack = (): Attack => {
+    const attacks: Attack[] = [
+      {
+        title: "Drink blood",
+        description: "{0} drank {1}'s blood!",
+        damage: 50,
+      },
+      {
+        title: "Done attack",
+        description: "{0} sent in the drones!",
+        damage: 30,
+      },
+    ];
+
+    return attacks[rollD2() - 1];
+  };
+
+  const handleNextRound = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setRound(round + 1);
     const { attacker, defender } = determineInitiative();
 
+    const attack = determineAttack();
     if (attacker.id === fighter1.id) {
       if (fighter2Wealth !== null) {
-        setFighter2Wealth(fighter2Wealth - 50);
+        setFighter2Wealth(fighter2Wealth - attack.damage);
       }
     } else {
       if (fighter1Wealth !== null) {
-        setFighter1Wealth(fighter1Wealth - 50);
+        setFighter1Wealth(fighter1Wealth - attack.damage);
       }
     }
 
-    setAttack(`${attacker.nickname} drank ${defender.nickname}'s blood!`);
+    setAttack(
+      stringFormat(attack.description, attacker.nickname, defender.nickname)
+    );
   };
 
   return (
@@ -124,7 +145,7 @@ const Ticker = ({
       </div>
       <p className="text-5xl">{attack}</p>
       {!fightFinished && (
-        <button onClick={handleOnClick}>
+        <button onClick={handleNextRound}>
           {round > 0 ? "Next Round" : "Begin!"}
         </button>
       )}
