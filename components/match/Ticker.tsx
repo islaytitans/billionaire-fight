@@ -3,9 +3,9 @@ import Link from "next/link";
 import Fighter from "../../types/Fighter";
 import Attack from "../../types/Attack";
 import stringFormat from "../../extentions/stringFormat";
-import Image from "next/image";
 import useDice from "../../match/useDice";
 import useModifier from "../../match/useModifier";
+import FighterAvatar from "../fighter/FighterAvatar";
 
 const Ticker = ({
   fighter1,
@@ -152,40 +152,8 @@ const Ticker = ({
 
   return (
     <section className="grid grid-cols-2 gap-2 py-4 px-2 my-10 items-center text-center bg-gray-50 rounded-xl shadow-lg space-y-10">
-      <div className="grid grid-cols-2 items-center">
-        <figure>
-          <Image
-            src={fighter1.image}
-            alt={fighter1.nickname}
-            width={50}
-            height={50}
-            layout="intrinsic"
-            priority
-            className="rounded-full border border-gray-100 shadow-sm"
-          />
-        </figure>
-        <h2 className="text-xl px-1 py-0.5">{fighter1.nickname}</h2>
-        <p className="col-span-2 text-2xl bg-green-400 rounded-3xl">
-          {fighter1Wealth}
-        </p>
-      </div>
-      <div className="grid grid-cols-2 items-center">
-        <figure>
-          <Image
-            src={fighter2.image}
-            alt={fighter2.nickname}
-            width={50}
-            height={50}
-            layout="intrinsic"
-            priority
-            className="rounded-full border border-gray-100 shadow-sm"
-          />
-        </figure>
-        <h2 className="text-xl px-1 py-0.5">{fighter2.nickname}</h2>
-        <p className="col-span-2 text-2xl bg-green-400 rounded-3xl">
-          {fighter2Wealth}
-        </p>
-      </div>
+      <FighterAvatar fighter={fighter1} fighterWealth={fighter1Wealth} />
+      <FighterAvatar fighter={fighter2} fighterWealth={fighter2Wealth} />
       <p className="col-span-2 text-5xl">{attack}</p>
       {!fightFinished && (
         <button className="col-span-2" onClick={handleNextRound}>
