@@ -1,10 +1,11 @@
 import { MouseEvent, useState } from "react";
 import Link from "next/link";
-import Fighter, { getModifier } from "../../types/Fighter";
+import Fighter from "../../types/Fighter";
 import Attack from "../../types/Attack";
 import stringFormat from "../../extentions/stringFormat";
 import Image from "next/image";
 import useDice from "../../match/useDice";
+import useModifier from "../../match/useModifier";
 
 const Ticker = ({
   fighter1,
@@ -23,6 +24,7 @@ const Ticker = ({
   const [round, setRound] = useState<number>(0);
   const [fightFinished, setFightFinished] = useState<boolean>(false);
   const [rollD2, rollD3, rollD20] = useDice();
+  const [calcStatModifier] = useModifier();
 
   if (fighter1 === null || fighter2 === null) {
     return (
@@ -35,8 +37,8 @@ const Ticker = ({
     );
   }
 
-  const fighter1SpeedModifier = getModifier(fighter1.speed);
-  const fighter2SpeedModifier = getModifier(fighter2.speed);
+  const fighter1SpeedModifier = calcStatModifier(fighter1.speed);
+  const fighter2SpeedModifier = calcStatModifier(fighter2.speed);
 
   const determineInitiative = () => {
     const fighter1SpeedRoll = rollD20();
@@ -130,8 +132,8 @@ const Ticker = ({
     const attack = determineAttack();
     const totalDamage = determineDamage(
       attack.damage,
-      getModifier(attacker.strength),
-      getModifier(defender.defence)
+      calcStatModifier(attacker.strength),
+      calcStatModifier(defender.defence)
     );
     if (attacker.id === fighter1.id) {
       if (fighter2Wealth !== null) {

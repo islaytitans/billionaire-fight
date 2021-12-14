@@ -10,9 +10,4 @@ type Fighter = {
   image: string;
 };
 
-export function getModifier(score: number): number {
-  const mod = Math.floor(score / 2 - 5);
-  return mod;
-}
-
 export default Fighter;
