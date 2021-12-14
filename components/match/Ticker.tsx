@@ -122,19 +122,32 @@ const Ticker = ({
     return attacks[rollD3() - 1];
   };
 
+  const determineDamage = (
+    damage: number,
+    attackModifier: number,
+    defenceModifier: number
+  ): number => {
+    return damage + attackModifier - defenceModifier;
+  };
+
   const handleNextRound = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setRound(round + 1);
     const { attacker, defender } = determineInitiative();
 
     const attack = determineAttack();
+    const totalDamage = determineDamage(
+      attack.damage,
+      getModifier(attacker.strength),
+      getModifier(defender.defence)
+    );
     if (attacker.id === fighter1.id) {
       if (fighter2Wealth !== null) {
-        setFighter2Wealth(fighter2Wealth - attack.damage);
+        setFighter2Wealth(fighter2Wealth - totalDamage);
       }
     } else {
       if (fighter1Wealth !== null) {
-        setFighter1Wealth(fighter1Wealth - attack.damage);
+        setFighter1Wealth(fighter1Wealth - totalDamage);
       }
     }
 
