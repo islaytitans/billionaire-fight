@@ -83,13 +83,13 @@ const Ticker = ({
       //setFightFinished(true);
       const wealthLost = loser.wealth + winner.wealth;
       return (
-        <>
+        <div className="col-span-2">
           <p className="text-8xl text-red-600">{winner.nickname} won!</p>
           <p className="text-4xl">
             ${wealthLost} billion was beaten out of them and donated to
             childrens hospitals and art graduates
           </p>
-        </>
+        </div>
       );
     }
   };
@@ -151,43 +151,44 @@ const Ticker = ({
   };
 
   return (
-    <section className="flex flex-col py-4 px-2 my-10 items-center text-center bg-gray-50 rounded-xl shadow-lg space-y-10">
-      <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-        <div className="flex flex-row items-center">
-          <figure>
-            <Image
-              src={fighter1.image}
-              alt={fighter1.nickname}
-              width={50}
-              height={50}
-              layout="intrinsic"
-              priority
-              className="rounded-full border border-gray-100 shadow-sm"
-            />
-          </figure>
-          <h2 className="text-xl px-1 py-0.5">{fighter1.nickname}</h2>
-        </div>
-        <div className="flex flex-row items-center">
-          <figure>
-            <Image
-              src={fighter2.image}
-              alt={fighter2.nickname}
-              width={50}
-              height={50}
-              layout="intrinsic"
-              priority
-              className="rounded-full border border-gray-100 shadow-sm"
-            />
-          </figure>
-          <h2 className="text-xl px-1 py-0.5">{fighter2.nickname}</h2>
-        </div>
-
-        <p className="text-2xl bg-green-400 rounded-3xl">{fighter1Wealth}</p>
-        <p className="text-2xl bg-green-400 rounded-3xl">{fighter2Wealth}</p>
+    <section className="grid grid-cols-2 gap-2 py-4 px-2 my-10 items-center text-center bg-gray-50 rounded-xl shadow-lg space-y-10">
+      <div className="grid grid-cols-2 items-center">
+        <figure>
+          <Image
+            src={fighter1.image}
+            alt={fighter1.nickname}
+            width={50}
+            height={50}
+            layout="intrinsic"
+            priority
+            className="rounded-full border border-gray-100 shadow-sm"
+          />
+        </figure>
+        <h2 className="text-xl px-1 py-0.5">{fighter1.nickname}</h2>
+        <p className="col-span-2 text-2xl bg-green-400 rounded-3xl">
+          {fighter1Wealth}
+        </p>
       </div>
-      <p className="text-5xl">{attack}</p>
+      <div className="grid grid-cols-2 items-center">
+        <figure>
+          <Image
+            src={fighter2.image}
+            alt={fighter2.nickname}
+            width={50}
+            height={50}
+            layout="intrinsic"
+            priority
+            className="rounded-full border border-gray-100 shadow-sm"
+          />
+        </figure>
+        <h2 className="text-xl px-1 py-0.5">{fighter2.nickname}</h2>
+        <p className="col-span-2 text-2xl bg-green-400 rounded-3xl">
+          {fighter2Wealth}
+        </p>
+      </div>
+      <p className="col-span-2 text-5xl">{attack}</p>
       {!fightFinished && (
-        <button onClick={handleNextRound}>
+        <button className="col-span-2" onClick={handleNextRound}>
           {round > 0 ? "Next Round" : "Begin!"}
         </button>
       )}

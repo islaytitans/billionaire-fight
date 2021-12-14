@@ -27,23 +27,21 @@ const Fight: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <div className="flex flex-col min-h-screen items-center">
-          <PageTitle title="Beat the wealth out of each other!" />
-          {service.status === "loading" && <div>Loading</div>}
-          {service.status === "loaded" && (
-            <>
-              <Ticker
-                fighter1={getFighter(service.payload, Game.players.player1Id)}
-                fighter2={getFighter(service.payload, Game.players.player2Id)}
-              />
-            </>
-          )}
-          {service.status === "error" && (
-            <div>Error, failed to retrieve the fighters</div>
-          )}
-        </div>
-      </main>
+      <div className="flex flex-col min-h-screen items-center">
+        <PageTitle title="Beat the wealth out of each other!" />
+        {service.status === "loading" && <div>Loading</div>}
+        {service.status === "loaded" && (
+          <>
+            <Ticker
+              fighter1={getFighter(service.payload, Game.players.player1Id)}
+              fighter2={getFighter(service.payload, Game.players.player2Id)}
+            />
+          </>
+        )}
+        {service.status === "error" && (
+          <div>Error, failed to retrieve the fighters</div>
+        )}
+      </div>
     </div>
   );
 };

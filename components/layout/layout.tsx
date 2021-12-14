@@ -25,7 +25,11 @@ const Layout: FC = ({ children }) => {
   return (
     <Fragment>
       <Header />
-      <GameProvider>{children}</GameProvider>
+      <GameProvider>
+        <main className="max-w-sm md:max-w-md lg:max-w-lg mx-auto">
+          {children}
+        </main>
+      </GameProvider>
     </Fragment>
   );
 };

@@ -16,21 +16,19 @@ const Fighters: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <div className="flex flex-col min-h-screen items-center">
-          <PageTitle title="Select your fighters!" />
-          {service.status === "loading" && <div>Loading</div>}
-          {service.status === "loaded" && (
-            <div>
-              <FightersGrid fighters={service.payload} />
-              <StartFight />
-            </div>
-          )}
-          {service.status === "error" && (
-            <div>Error, failed to retrieve the fighters</div>
-          )}
-        </div>
-      </main>
+      <div className="flex flex-col min-h-screen items-center">
+        <PageTitle title="Select your fighters!" />
+        {service.status === "loading" && <div>Loading</div>}
+        {service.status === "loaded" && (
+          <div>
+            <FightersGrid fighters={service.payload} />
+            <StartFight />
+          </div>
+        )}
+        {service.status === "error" && (
+          <div>Error, failed to retrieve the fighters</div>
+        )}
+      </div>
     </>
   );
 };
