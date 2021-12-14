@@ -4,6 +4,7 @@ import Fighter, { getModifier } from "../../types/Fighter";
 import Attack from "../../types/Attack";
 import stringFormat from "../../extentions/stringFormat";
 import Image from "next/image";
+import useDice from "../../match/useDice";
 
 const Ticker = ({
   fighter1,
@@ -21,6 +22,7 @@ const Ticker = ({
   const [attack, setAttack] = useState<string>("3..2..1...FIGHT!");
   const [round, setRound] = useState<number>(0);
   const [fightFinished, setFightFinished] = useState<boolean>(false);
+  const [rollD2, rollD3, rollD20] = useDice();
 
   if (fighter1 === null || fighter2 === null) {
     return (
@@ -32,16 +34,6 @@ const Ticker = ({
       </section>
     );
   }
-
-  const rollD20 = (): number => {
-    return Math.floor(Math.random() * 20 + 1);
-  };
-  const rollD2 = (): number => {
-    return Math.floor(Math.random() * 2 + 1);
-  };
-  const rollD3 = (): number => {
-    return Math.floor(Math.random() * 3 + 1);
-  };
 
   const fighter1SpeedModifier = getModifier(fighter1.speed);
   const fighter2SpeedModifier = getModifier(fighter2.speed);
