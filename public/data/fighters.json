@@ -8,7 +8,24 @@
     "strength": 13,
     "defence": 15,
     "speed": 9,
-    "image": "/images/fighters/Elon.jpeg"
+    "image": "/images/fighters/Elon.jpeg",
+    "attacks": [
+      {
+        "title": "Drink blood",
+        "description": "{0} drank {1}'s blood!",
+        "damage": 50
+      },
+      {
+        "title": "Done attack",
+        "description": "{0} sent in the drones!",
+        "damage": 30
+      },
+      {
+        "title": "Planted evidence",
+        "description": "{0} leaked a photo of {1} with Epstien!",
+        "damage": 25
+      }
+    ]
   },
   {
     "id": 2,
@@ -19,7 +36,24 @@
     "strength": 9,
     "defence": 12,
     "speed": 13,
-    "image": "/images/fighters/Zucker.jpg"
+    "image": "/images/fighters/Zucker.jpg",
+    "attacks": [
+      {
+        "title": "Drink blood",
+        "description": "{0} drank {1}'s blood!",
+        "damage": 50
+      },
+      {
+        "title": "Done attack",
+        "description": "{0} sent in the drones!",
+        "damage": 30
+      },
+      {
+        "title": "Planted evidence",
+        "description": "{0} leaked a photo of {1} with Epstien!",
+        "damage": 25
+      }
+    ]
   },
   {
     "id": 3,
@@ -30,7 +64,24 @@
     "strength": 13,
     "defence": 10,
     "speed": 16,
-    "image": "/images/fighters/Jeff.jpeg"
+    "image": "/images/fighters/Jeff.jpeg",
+    "attacks": [
+      {
+        "title": "Drink blood",
+        "description": "{0} drank {1}'s blood!",
+        "damage": 50
+      },
+      {
+        "title": "Done attack",
+        "description": "{0} sent in the drones!",
+        "damage": 30
+      },
+      {
+        "title": "Planted evidence",
+        "description": "{0} leaked a photo of {1} with Epstien!",
+        "damage": 25
+      }
+    ]
   },
   {
     "id": 4,
@@ -41,7 +92,24 @@
     "strength": 9,
     "defence": 16,
     "speed": 11,
-    "image": "/images/fighters/Bill.jpeg"
+    "image": "/images/fighters/Bill.jpeg",
+    "attacks": [
+      {
+        "title": "Drink blood",
+        "description": "{0} drank {1}'s blood!",
+        "damage": 50
+      },
+      {
+        "title": "Done attack",
+        "description": "{0} sent in the drones!",
+        "damage": 30
+      },
+      {
+        "title": "Planted evidence",
+        "description": "{0} leaked a photo of {1} with Epstien!",
+        "damage": 25
+      }
+    ]
   },
   {
     "id": 5,
@@ -52,6 +120,23 @@
     "strength": 20,
     "defence": 20,
     "speed": 20,
-    "image": "/images/fighters/Rich.jpeg"
+    "image": "/images/fighters/Rich.jpeg",
+    "attacks": [
+      {
+        "title": "Drink blood",
+        "description": "{0} drank {1}'s blood!",
+        "damage": 50
+      },
+      {
+        "title": "Done attack",
+        "description": "{0} sent in the drones!",
+        "damage": 30
+      },
+      {
+        "title": "Planted evidence",
+        "description": "{0} leaked a photo of {1} with Epstien!",
+        "damage": 25
+      }
+    ]
   }
 ]

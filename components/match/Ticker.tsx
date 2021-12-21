@@ -94,26 +94,8 @@ const Ticker = ({
     }
   };
 
-  const determineAttack = (): Attack => {
-    const attacks: Attack[] = [
-      {
-        title: "Drink blood",
-        description: "{0} drank {1}'s blood!",
-        damage: 50,
-      },
-      {
-        title: "Done attack",
-        description: "{0} sent in the drones!",
-        damage: 30,
-      },
-      {
-        title: "Planted evidence",
-        description: "{0} leaked a photo of {1} with Epstien!",
-        damage: 25,
-      },
-    ];
-
-    return attacks[rollD3() - 1];
+  const determineAttack = (fighter: Fighter): Attack => {
+    return fighter.attacks[rollD3() - 1];
   };
 
   const determineDamage = (
@@ -129,7 +111,7 @@ const Ticker = ({
     setRound(round + 1);
     const { attacker, defender } = determineInitiative();
 
-    const attack = determineAttack();
+    const attack = determineAttack(attacker);
     const totalDamage = determineDamage(
       attack.damage,
       calcStatModifier(attacker.strength),

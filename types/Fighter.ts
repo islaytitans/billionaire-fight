@@ -1,3 +1,5 @@
+import Attack from "./Attack";
+
 type Fighter = {
   id: number;
   firstName: string;
@@ -8,6 +10,7 @@ type Fighter = {
   defence: number;
   speed: number;
   image: string;
+  attacks: Attack[];
 };
 
 export default Fighter;
