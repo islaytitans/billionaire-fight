@@ -28,7 +28,7 @@ const Ticker = ({
 
   if (fighter1 === null || fighter2 === null) {
     return (
-      <section className="flex flex-col py-4 px-2 my-10 items-center text-center bg-gray-50 rounded-xl shadow-lg space-y-10">
+      <section className="flex flex-col py-4 px-2 my-10 items-center text-center bg-gray-50 rounded-xl shadow-lg shadow-red-600/30 space-y-10">
         <h2>Two fighters need to be selected</h2>
         <Link href="/fighters">
           <a>Go to the roster</a>
@@ -106,7 +106,7 @@ const Ticker = ({
     return damage + attackModifier - defenceModifier;
   };
 
-  const handleNextRound = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleRound = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setRound(round + 1);
     const { attacker, defender } = determineInitiative();
@@ -133,12 +133,12 @@ const Ticker = ({
   };
 
   return (
-    <section className="grid grid-cols-2 gap-2 py-4 px-2 my-10 items-center text-center bg-gray-50 rounded-xl shadow-lg space-y-10">
+    <section className="grid grid-cols-2 gap-2 py-4 px-2 my-10 items-center text-center bg-gray-50 rounded-xl shadow-lg shadow-red-600/30 space-y-10">
       <FighterAvatar fighter={fighter1} fighterWealth={fighter1Wealth} />
       <FighterAvatar fighter={fighter2} fighterWealth={fighter2Wealth} />
       <p className="col-span-2 text-5xl">{attack}</p>
       {!fightFinished && (
-        <button className="col-span-2" onClick={handleNextRound}>
+        <button className="col-span-2" onClick={handleRound}>
           {round > 0 ? "Next Round" : "Begin!"}
         </button>
       )}

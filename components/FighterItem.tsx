@@ -36,7 +36,7 @@ const FighterItem = ({ fighter }: { fighter: Fighter }) => {
 
   return (
     <li
-      className="flex flex-col bg-gray-50 my-5 pb-3 rounded-xl shadow-lg"
+      className="flex flex-col bg-gray-50 my-5 pb-3 rounded-xl shadow-lg shadow-red-600/30"
       data-id={fighter.id}
       onClick={handleOnClick}
     >
