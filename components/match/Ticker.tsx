@@ -95,23 +95,23 @@ const Ticker = ({ fighter1, fighter2 }: { fighter1: Fighter | null; fighter2: Fi
   };
 
   return (
-    <section className="grid grid-cols-2 gap-2 px-2 my-10 text-center items-end bg-gray-50 rounded-xl shadow-lg shadow-red-600/30 space-y-10">
+    <section className="grid grid-cols-2 gap-2 p-2 my-10 text-center items-end bg-gray-50 rounded-xl shadow-lg shadow-red-600/30 space-y-10">
       <FighterAvatar fighter={fighter1} fighterWealth={fighter1Wealth} />
       <FighterAvatar fighter={fighter2} fighterWealth={fighter2Wealth} />
-      <p className="col-span-2 text-5xl">{attack}</p>
+      <p className="col-span-2 text-3xl">{attack}</p>
       {!fightFinished && (
         <button className="col-span-2" onClick={handleRound}>
           {round > 0 ? "Next Round" : "Begin!"}
         </button>
       )}
       {fightFinished && (
-        <div className="col-span-2">
-          <p className="text-8xl text-red-600">{winner?.nickname} won!</p>
-          <p className="text-4xl">
+        <>
+          <p className="text-6xl text-red-600 col-span-2">{winner?.nickname} won!</p>
+          <p className="text-3xl col-span-2">
             ${wealthLost} billion was beaten out of them and donated to childrens hospitals and art
             graduates
           </p>
-        </div>
+        </>
       )}
     </section>
   );
