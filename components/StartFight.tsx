@@ -5,18 +5,25 @@ import { GameContext } from "../context/GameContext";
 const StartFight = () => {
   const Game = useContext(GameContext);
 
-  const disableButton =
+  const disable =
     Game.players.player1Id === null || Game.players.player2Id === null;
 
+  if (disable) {
+    return (
+      <div className="py-3 my-2 text-4xl text-center tracking-widest bg-red-600 text-yellow-300 border-gray-100 rounded-xl opacity-50">
+        Fight!
+      </div>
+    );
+  }
+
   return (
-    <button
-      disabled={disableButton}
-      className="w-96 py-3 my-2 text-4xl tracking-widest bg-red-600 hover:bg-red-700 text-yellow-300 border-gray-100 rounded-xl disabled:opacity-50"
-    >
-      <Link href="/fight">
-        <a>Fight!</a>
-      </Link>
-    </button>
+    <Link href="/fight">
+      <a>
+        <div className="py-3 my-2 text-4xl text-center tracking-widest bg-red-600 hover:bg-red-700 text-yellow-300 border-gray-100 rounded-xl">
+          Fight!
+        </div>
+      </a>
+    </Link>
   );
 };
 

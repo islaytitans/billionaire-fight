@@ -1,11 +1,11 @@
 import { MouseEvent, useState } from "react";
-import Link from "next/link";
 import Fighter from "../../types/Fighter";
 import Attack from "../../types/Attack";
 import stringFormat from "../../extentions/stringFormat";
 import useDice from "../../match/useDice";
 import useModifier from "../../match/useModifier";
 import FighterAvatar from "../fighter/FighterAvatar";
+import NoChosenFighters from "./NoChosenFighters";
 
 const Ticker = ({
   fighter1,
@@ -27,14 +27,7 @@ const Ticker = ({
   const [calcStatModifier] = useModifier();
 
   if (fighter1 === null || fighter2 === null) {
-    return (
-      <section className="flex flex-col py-4 px-2 my-10 items-center text-center bg-gray-50 rounded-xl shadow-lg shadow-red-600/30 space-y-10">
-        <h2>Two fighters need to be selected</h2>
-        <Link href="/fighters">
-          <a>Go to the roster</a>
-        </Link>
-      </section>
-    );
+    return <NoChosenFighters />;
   }
 
   const fighter1SpeedModifier = calcStatModifier(fighter1.speed);
