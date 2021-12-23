@@ -57,10 +57,6 @@ const Ticker = ({ fighter1, fighter2 }: { fighter1: Fighter | null; fighter2: Fi
     }
   };
 
-  const determineAttack = (fighter: Fighter): Attack => {
-    return fighter.attacks[rollD3() - 1];
-  };
-
   const determineDamage = (
     damage: number,
     attackModifier: number,
@@ -74,19 +70,29 @@ const Ticker = ({ fighter1, fighter2 }: { fighter1: Fighter | null; fighter2: Fi
     setRound(round + 1);
     const { attacker, defender } = determineInitiative();
 
-    const attack = determineAttack(attacker);
-    const totalDamage = determineDamage(
+    const attack = attacker.attacks[rollD3() - 1];
+    let totalDamage = determineDamage(
       attack.damage,
       calcStatModifier(attacker.strength),
       calcStatModifier(defender.defence)
     );
     if (attacker.id === fighter1.id) {
       if (fighter2Wealth !== null) {
-        setFighter2Wealth(fighter2Wealth - totalDamage);
+        if (totalDamage > fighter2Wealth) {
+          totalDamage = fighter2Wealth;
+          setFighter2Wealth(0);
+        } else {
+          setFighter2Wealth(fighter2Wealth - totalDamage);
+        }
       }
     } else {
       if (fighter1Wealth !== null) {
-        setFighter1Wealth(fighter1Wealth - totalDamage);
+        if (totalDamage > fighter1Wealth) {
+          totalDamage = fighter1Wealth;
+          setFighter1Wealth(0);
+        } else {
+          setFighter1Wealth(fighter1Wealth - totalDamage);
+        }
       }
     }
     setWealthLost(wealthLost + totalDamage);
