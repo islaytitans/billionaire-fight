@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useContext } from "react";
-import { GameContext } from "../context/GameContext";
+import { GameContext } from "../../context/GameContext";
 
 const StartFight = () => {
   const Game = useContext(GameContext);

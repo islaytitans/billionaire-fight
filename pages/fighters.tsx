@@ -1,9 +1,9 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import FightersGrid from "../components/FightersGrid";
+import FightersGrid from "../components/fighter/FightersGrid";
 import useGetFightersService from "../services/useGetFightersService";
-import PageTitle from "../components/PageTitle";
-import StartFight from "../components/StartFight";
+import PageTitle from "../components/global/PageTitle";
+import StartFight from "../components/match/StartFight";
 
 const Fighters: NextPage = () => {
   const service = useGetFightersService();

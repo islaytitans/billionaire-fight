@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import React, { useContext } from "react";
-import PageTitle from "../components/PageTitle";
+import PageTitle from "../components/global/PageTitle";
 import Ticker from "../components/match/Ticker";
 import useGetFightersService from "../services/useGetFightersService";
 import { GameContext } from "../context/GameContext";

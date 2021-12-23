@@ -1,7 +1,7 @@
 import { MouseEvent, useContext } from "react";
-import Fighter from "../types/Fighter";
+import Fighter from "../../types/Fighter";
 import Image from "next/image";
-import { GameContext } from "../context/GameContext";
+import { GameContext } from "../../context/GameContext";
 
 const FighterItem = ({ fighter }: { fighter: Fighter }) => {
   const Game = useContext(GameContext);

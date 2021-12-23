@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import TitleCard from "../components/TitleCard";
+import TitleCard from "../components/global/TitleCard";
 
 const Home: NextPage = () => {
   return (
-    <section className="flex min-h-screen justify-center items-center bg-red-600 text-yellow-300">
+    <section className="flex w-full min-h-screen justify-center items-center bg-red-600 text-yellow-300">
       <Head>
         <title>Billionaire Bum Fight</title>
         <meta name="description" content="Let them fight" />

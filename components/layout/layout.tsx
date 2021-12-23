@@ -1,5 +1,5 @@
 import { FC, Fragment, useContext } from "react";
-import Header from "../Header";
+import Header from "../global/Header";
 import GameProvider from "../../providers/GameProvider";
 import useGetFightersService from "../../services/useGetFightersService";
 import { GameContext } from "../../context/GameContext";
