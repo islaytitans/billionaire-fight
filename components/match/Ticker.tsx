@@ -133,7 +133,7 @@ const Ticker = ({
   };
 
   return (
-    <section className="grid grid-cols-2 gap-2 py-4 px-2 my-10 items-center text-center bg-gray-50 rounded-xl shadow-lg shadow-red-600/30 space-y-10">
+    <section className="grid grid-cols-2 gap-2 px-2 my-10 text-center items-end bg-gray-50 rounded-xl shadow-lg shadow-red-600/30 space-y-10">
       <FighterAvatar fighter={fighter1} fighterWealth={fighter1Wealth} />
       <FighterAvatar fighter={fighter2} fighterWealth={fighter2Wealth} />
       <p className="col-span-2 text-5xl">{attack}</p>
