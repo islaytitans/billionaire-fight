@@ -5,8 +5,7 @@ import { GameContext } from "../../context/GameContext";
 const StartFight = () => {
   const Game = useContext(GameContext);
 
-  const disable =
-    Game.players.player1Id === null || Game.players.player2Id === null;
+  const disable = Game.players.player1Id === null || Game.players.player2Id === null;
 
   if (disable) {
     return (

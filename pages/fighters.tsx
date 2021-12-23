@@ -25,9 +25,7 @@ const Fighters: NextPage = () => {
             <StartFight />
           </div>
         )}
-        {service.status === "error" && (
-          <div>Error, failed to retrieve the fighters</div>
-        )}
+        {service.status === "error" && <div>Error, failed to retrieve the fighters</div>}
       </div>
     </>
   );

@@ -7,19 +7,9 @@ import useModifier from "../../match/useModifier";
 import FighterAvatar from "../fighter/FighterAvatar";
 import NoChosenFighters from "./NoChosenFighters";
 
-const Ticker = ({
-  fighter1,
-  fighter2,
-}: {
-  fighter1: Fighter | null;
-  fighter2: Fighter | null;
-}) => {
-  const [fighter1Wealth, setFighter1Wealth] = useState<number | null>(
-    fighter1?.wealth ?? null
-  );
-  const [fighter2Wealth, setFighter2Wealth] = useState<number | null>(
-    fighter2?.wealth ?? null
-  );
+const Ticker = ({ fighter1, fighter2 }: { fighter1: Fighter | null; fighter2: Fighter | null }) => {
+  const [fighter1Wealth, setFighter1Wealth] = useState<number | null>(fighter1?.wealth ?? null);
+  const [fighter2Wealth, setFighter2Wealth] = useState<number | null>(fighter2?.wealth ?? null);
   const [attack, setAttack] = useState<string>("3..2..1...FIGHT!");
   const [round, setRound] = useState<number>(0);
   const [fightFinished, setFightFinished] = useState<boolean>(false);
@@ -37,10 +27,7 @@ const Ticker = ({
     const fighter1SpeedRoll = rollD20();
     const fighter2SpeedRoll = rollD20();
 
-    if (
-      fighter1SpeedRoll + fighter1SpeedModifier >
-      fighter2SpeedRoll + fighter2SpeedModifier
-    ) {
+    if (fighter1SpeedRoll + fighter1SpeedModifier > fighter2SpeedRoll + fighter2SpeedModifier) {
       return { attacker: fighter1, defender: fighter2 };
     } else if (
       fighter1SpeedRoll + fighter1SpeedModifier <
@@ -67,20 +54,15 @@ const Ticker = ({
       loser = fighter2;
     }
 
-    if (
-      winner !== null &&
-      loser !== null &&
-      fighter1Wealth !== null &&
-      fighter2Wealth !== null
-    ) {
+    if (winner !== null && loser !== null && fighter1Wealth !== null && fighter2Wealth !== null) {
       //setFightFinished(true);
       const wealthLost = loser.wealth + winner.wealth;
       return (
         <div className="col-span-2">
           <p className="text-8xl text-red-600">{winner.nickname} won!</p>
           <p className="text-4xl">
-            ${wealthLost} billion was beaten out of them and donated to
-            childrens hospitals and art graduates
+            ${wealthLost} billion was beaten out of them and donated to childrens hospitals and art
+            graduates
           </p>
         </div>
       );
@@ -120,9 +102,7 @@ const Ticker = ({
       }
     }
 
-    setAttack(
-      stringFormat(attack.description, attacker.nickname, defender.nickname)
-    );
+    setAttack(stringFormat(attack.description, attacker.nickname, defender.nickname));
   };
 
   return (

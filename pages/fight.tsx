@@ -11,10 +11,7 @@ const Fight: NextPage = () => {
   const service = useGetFightersService();
   const Game = useContext(GameContext);
 
-  function getFighter(
-    fighters: Fighter[],
-    playerId: Number | null
-  ): Fighter | null {
+  function getFighter(fighters: Fighter[], playerId: Number | null): Fighter | null {
     const fighter = fighters.find((f) => f.id === playerId);
     return fighter || null;
   }
@@ -38,9 +35,7 @@ const Fight: NextPage = () => {
             />
           </>
         )}
-        {service.status === "error" && (
-          <div>Error, failed to retrieve the fighters</div>
-        )}
+        {service.status === "error" && <div>Error, failed to retrieve the fighters</div>}
       </div>
     </div>
   );

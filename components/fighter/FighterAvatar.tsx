@@ -22,9 +22,7 @@ const FighterAvatar = ({
         />
       </figure>
       <h2 className="col-span-2 text-xl px-1 py-0.5">{fighter.nickname}</h2>
-      <p className="col-span-3 text-2xl bg-green-400 rounded-3xl">
-        {fighterWealth}
-      </p>
+      <p className="col-span-3 text-2xl bg-green-400 rounded-3xl">{fighterWealth}</p>
     </div>
   );
 };
