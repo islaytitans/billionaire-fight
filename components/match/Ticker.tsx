@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import Fighter from "../../types/Fighter";
 import Attack from "../../types/Attack";
 import stringFormat from "../../extentions/stringFormat";
@@ -13,8 +13,22 @@ const Ticker = ({ fighter1, fighter2 }: { fighter1: Fighter | null; fighter2: Fi
   const [attack, setAttack] = useState<string>("3..2..1...FIGHT!");
   const [round, setRound] = useState<number>(0);
   const [fightFinished, setFightFinished] = useState<boolean>(false);
+  const [winner, setWinner] = useState<Fighter | null>(null);
+  const [wealthLost, setWealthLost] = useState<number>(0);
   const [rollD2, rollD3, rollD20] = useDice();
   const [calcStatModifier] = useModifier();
+
+  useEffect(() => {
+    if (fighter1Wealth !== null && fighter1Wealth <= 0) {
+      setWinner(fighter2);
+    } else if (fighter2Wealth !== null && fighter2Wealth <= 0) {
+      setWinner(fighter1);
+    }
+
+    if (winner !== null) {
+      setFightFinished(true);
+    }
+  }, [fighter1, fighter1Wealth, fighter2, fighter2Wealth, winner]);
 
   if (fighter1 === null || fighter2 === null) {
     return <NoChosenFighters />;
@@ -40,32 +54,6 @@ const Ticker = ({ fighter1, fighter2 }: { fighter1: Fighter | null; fighter2: Fi
       } else {
         return { attacker: fighter2, defender: fighter1 };
       }
-    }
-  };
-
-  const determineWinner = () => {
-    let winner: Fighter | null = null;
-    let loser: Fighter | null = null;
-    if (fighter1Wealth !== null && fighter1Wealth <= 0) {
-      winner = fighter2;
-      loser = fighter1;
-    } else if (fighter2Wealth !== null && fighter2Wealth <= 0) {
-      winner = fighter1;
-      loser = fighter2;
-    }
-
-    if (winner !== null && loser !== null && fighter1Wealth !== null && fighter2Wealth !== null) {
-      //setFightFinished(true);
-      const wealthLost = loser.wealth + winner.wealth;
-      return (
-        <div className="col-span-2">
-          <p className="text-8xl text-red-600">{winner.nickname} won!</p>
-          <p className="text-4xl">
-            ${wealthLost} billion was beaten out of them and donated to childrens hospitals and art
-            graduates
-          </p>
-        </div>
-      );
     }
   };
 
@@ -101,6 +89,7 @@ const Ticker = ({ fighter1, fighter2 }: { fighter1: Fighter | null; fighter2: Fi
         setFighter1Wealth(fighter1Wealth - totalDamage);
       }
     }
+    setWealthLost(wealthLost + totalDamage);
 
     setAttack(stringFormat(attack.description, attacker.nickname, defender.nickname));
   };
@@ -115,7 +104,15 @@ const Ticker = ({ fighter1, fighter2 }: { fighter1: Fighter | null; fighter2: Fi
           {round > 0 ? "Next Round" : "Begin!"}
         </button>
       )}
-      {determineWinner()}
+      {fightFinished && (
+        <div className="col-span-2">
+          <p className="text-8xl text-red-600">{winner?.nickname} won!</p>
+          <p className="text-4xl">
+            ${wealthLost} billion was beaten out of them and donated to childrens hospitals and art
+            graduates
+          </p>
+        </div>
+      )}
     </section>
   );
 };
