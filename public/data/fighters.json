@@ -13,12 +13,12 @@
       {
         "title": "Space X rocket",
         "description": "{0} directed the Falcon 1 to land on {1}!",
-        "damage": 50
+        "damage": 70
       },
       {
         "title": "Baby name",
         "description": "{0} renamed {1}'s children!",
-        "damage": 30
+        "damage": 10
       },
       {
         "title": "Tesla Truck",
@@ -74,12 +74,12 @@
       {
         "title": "Done attack",
         "description": "{0} sent in the delivery drones!",
-        "damage": 30
+        "damage": 45
       },
       {
         "title": "Monopoly",
         "description": "{0} undercut all of {1}'s highstreet shops forcing them to close!",
-        "damage": 25
+        "damage": 10
       }
     ]
   },
@@ -97,17 +97,17 @@
       {
         "title": "Clippy",
         "description": "{0} set Clippy on {1}!",
-        "damage": 50
+        "damage": 45
       },
       {
         "title": "Windows Phone",
         "description": "{0} swapped {1} phone for a Window's Phone!",
-        "damage": 30
+        "damage": 20
       },
       {
         "title": "Planted evidence",
         "description": "{0} leaked a photo of {1} with Epstien!",
-        "damage": 25
+        "damage": 40
       }
     ]
   },
@@ -125,17 +125,17 @@
       {
         "title": "Uninspiring speech",
         "description": "{0} bored {1} with an uninspiring speech about billionaires and space!",
-        "damage": 50
+        "damage": 25
       },
       {
         "title": "Virgin cola",
         "description": "{0} made {1} drink dozens of expired Virgin Cola cans!",
-        "damage": 30
+        "damage": 50
       },
       {
         "title": "Records",
         "description": "{0} threw vinyls at {1}'s face!",
-        "damage": 25
+        "damage": 30
       }
     ]
   }
