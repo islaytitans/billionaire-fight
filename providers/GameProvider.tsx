@@ -3,21 +3,15 @@ import { GameContext, defaultGameState } from "../context/GameContext";
 import Fighter from "../types/Fighter";
 
 const PlayersProvider: FC = ({ children }) => {
-  const [fighters, setFighters] = useState<Fighter[] | null>(
-    defaultGameState.roster.fighters
-  );
+  const [fighters, setFighters] = useState<Fighter[] | null>(defaultGameState.roster.fighters);
 
   const updateFighters = (fighters: Fighter[]) => {
     console.log("here - updateFighters");
     setFighters(fighters);
   };
 
-  const [player1, setPlayer1] = useState<Number | null>(
-    defaultGameState.players.player1Id
-  );
-  const [player2, setPlayer2] = useState<Number | null>(
-    defaultGameState.players.player2Id
-  );
+  const [player1, setPlayer1] = useState<Number | null>(defaultGameState.players.player1Id);
+  const [player2, setPlayer2] = useState<Number | null>(defaultGameState.players.player2Id);
 
   const updatePlayer1 = (fighterId: Number | null) => {
     setPlayer1(fighterId);

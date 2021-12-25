@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { GameContext } from "../context/GameContext";
-import Fighter from "../types/Fighter";
+import { GameContext } from "../../context/GameContext";
+import Fighter from "../../types/Fighter";
 import FighterItem from "./FighterItem";
 
 const FightersGrid = ({ fighters }: { fighters: Fighter[] }) => {
