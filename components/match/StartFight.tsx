@@ -9,7 +9,7 @@ const StartFight = () => {
 
   if (disable) {
     return (
-      <div className="py-3 my-2 text-4xl text-center tracking-widest bg-red-600 text-yellow-300 border-gray-100 rounded-xl opacity-50">
+      <div className="py-3 my-2 text-4xl text-center min-w-full tracking-widest bg-red-600 text-yellow-300 border-gray-100 rounded-full opacity-50">
         Fight!
       </div>
     );
@@ -18,7 +18,7 @@ const StartFight = () => {
   return (
     <Link href="/fight">
       <a>
-        <div className="py-3 my-2 text-4xl text-center tracking-widest bg-red-600 hover:bg-red-700 text-yellow-300 border-gray-100 rounded-xl">
+        <div className="py-3 my-2 text-4xl text-center tracking-widest bg-red-600 hover:bg-red-700 text-yellow-300 border-gray-100 rounded-full">
           Fight!
         </div>
       </a>

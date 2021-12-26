@@ -23,20 +23,24 @@ const FighterItem = ({ fighter }: { fighter: Fighter }) => {
 
   let selected;
   if (fighter.id === Game.players.player1Id) {
-    selected = <p className="bg-red-600 text-center py-1 rounded-xl">Player 1</p>;
+    selected = (
+      <p className="bg-red-600 text-center text-yellow-400 text-xl py-1 rounded-t-xl">Player 1</p>
+    );
   } else if (fighter.id === Game.players.player2Id) {
-    selected = <p className="bg-yellow-300 text-center py-1 rounded-xl">Player 2</p>;
+    selected = (
+      <p className="bg-yellow-300 text-center text-red-600 text-xl py-1 rounded-t-xl">Player 2</p>
+    );
   } else {
     selected = null;
   }
 
   return (
     <li
-      className="flex flex-col bg-gray-50 my-5 pb-3 rounded-xl shadow-lg shadow-red-600/30"
+      className="flex flex-col bg-gray-50 my-5 pb-3 rounded-xl shadow-lg shadow-red-600/30 hover:shadow-red-600/60"
       data-id={fighter.id}
       onClick={handleOnClick}>
       {selected}
-      <figure className="relative mb-3">
+      <figure className="">
         <Image
           src={fighter.image || ""}
           width={700}
@@ -44,6 +48,7 @@ const FighterItem = ({ fighter }: { fighter: Fighter }) => {
           alt={fighter.firstName + " " + fighter.lastName}
           layout="responsive"
           priority
+          className="rounded-t-xl"
         />
       </figure>
       <section className="flex flex-col px-3">

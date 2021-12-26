@@ -17,11 +17,11 @@ const Fighters: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex flex-col min-h-screen items-center">
+      <section className="flex flex-col max-w-xs md:max-w-md lg:max-w-lg mx-auto pt-6">
         <PageTitle title="Select your fighters!" />
         <FightersGrid fighters={Game.roster.fighters} />
         <StartFight />
-      </div>
+      </section>
     </>
   );
 };

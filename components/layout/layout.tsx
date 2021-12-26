@@ -23,7 +23,7 @@ const Layout: FC = ({ children }) => {
   return (
     <Fragment>
       <Header />
-      <main className="max-w-sm md:max-w-md lg:max-w-lg mx-auto">{children}</main>
+      <main className="max-w-full mx-auto">{children}</main>
     </Fragment>
   );
 };

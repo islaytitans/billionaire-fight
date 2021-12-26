@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="flex justify-center bg-red-600 mb-4 py-1">
+    <header className="flex justify-center bg-red-600 py-1">
       <Link href="/fighters">
         <a>
           <Image src="/images/Logo.png" alt="Billionaire Bum Fight" width={300} height={40} />
