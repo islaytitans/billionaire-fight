@@ -6,7 +6,6 @@ const PlayersProvider: FC = ({ children }) => {
   const [fighters, setFighters] = useState<Fighter[] | null>(defaultGameState.roster.fighters);
 
   const updateFighters = (fighters: Fighter[]) => {
-    console.log("here - updateFighters");
     setFighters(fighters);
   };
 
@@ -21,11 +20,9 @@ const PlayersProvider: FC = ({ children }) => {
   };
 
   const getSelectedFighter1 = () => {
-    console.log("here - getSelectedFighter1");
     return fighters?.find((x) => x.id === player1) ?? null;
   };
   const getSelectedFighter2 = () => {
-    console.log("here - getSelectedFighter2");
     return fighters?.find((x) => x.id === player2) ?? null;
   };
 
@@ -44,8 +41,7 @@ const PlayersProvider: FC = ({ children }) => {
           updatePlayer1: updatePlayer1,
           updatePlayer2: updatePlayer2,
         },
-      }}
-    >
+      }}>
       {children}
     </GameContext.Provider>
   );

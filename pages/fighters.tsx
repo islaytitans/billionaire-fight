@@ -1,12 +1,13 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import FightersGrid from "../components/fighter/FightersGrid";
-import useGetFightersService from "../services/useGetFightersService";
 import PageTitle from "../components/global/PageTitle";
 import StartFight from "../components/match/StartFight";
+import { useContext } from "react";
+import { GameContext } from "../context/GameContext";
 
 const Fighters: NextPage = () => {
-  const service = useGetFightersService();
+  const Game = useContext(GameContext);
 
   return (
     <>
@@ -18,14 +19,8 @@ const Fighters: NextPage = () => {
 
       <div className="flex flex-col min-h-screen items-center">
         <PageTitle title="Select your fighters!" />
-        {service.status === "loading" && <div>Loading</div>}
-        {service.status === "loaded" && (
-          <div>
-            <FightersGrid fighters={service.payload} />
-            <StartFight />
-          </div>
-        )}
-        {service.status === "error" && <div>Error, failed to retrieve the fighters</div>}
+        <FightersGrid fighters={Game.roster.fighters} />
+        <StartFight />
       </div>
     </>
   );
