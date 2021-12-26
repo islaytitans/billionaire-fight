@@ -107,7 +107,9 @@ const Ticker = ({ fighter1, fighter2 }: { fighter1: Fighter | null; fighter2: Fi
       <FighterAvatar fighter={fighter2} fighterWealth={fighter2Wealth} />
       <p className="col-span-2 text-3xl">{attack}</p>
       {!match.matchComplete && (
-        <button className="col-span-2" onClick={handleRound}>
+        <button
+          className="col-span-2 bg-red-600 rounded-full text-2xl text-yellow-400 py-1"
+          onClick={handleRound}>
           {match.round > 1 ? "Next Round" : "Begin!"}
         </button>
       )}
