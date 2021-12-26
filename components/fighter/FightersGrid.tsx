@@ -7,7 +7,7 @@ const FightersGrid = ({ fighters }: { fighters: Fighter[] | null }) => {
   }
 
   return (
-    <ul className="flex flex-col py-3">
+    <ul className="grid grid-cols-1 lg:grid-cols-2 gap-y-3 lg:gap-x-3">
       {fighters.map((fighter: Fighter) => (
         <FighterItem key={fighter.id} fighter={fighter} />
       ))}

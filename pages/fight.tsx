@@ -16,7 +16,7 @@ const Fight: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="flex flex-col max-w-xs md:max-w-md lg:max-w-lg mx-auto pt-6">
+      <section className="flex flex-col max-w-xs md:max-w-md lg:max-w-2xl mx-auto pt-6">
         <PageTitle title="Beat the wealth out of each other!" />
         <Ticker
           fighter1={Game.roster.getSelectedFighter1()}
