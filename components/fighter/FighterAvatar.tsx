@@ -27,13 +27,16 @@ const FighterAvatar = ({
         />
       </figure>
       <h2 className="col-span-2 text-xl px-1 py-0.5">{fighter.nickname}</h2>
-      <div className="col-span-3 w-full bg-red-800 rounded-full">
+      <div className="relative col-span-3 w-full bg-red-800 rounded-full h-8">
         <div
-          className={`bg-green-400 w-[${currentWealth}%] ${
+          className={`bg-green-400 w-[${currentWealth}%] h-8 ${
             currentWealth === 100 ? "rounded-full" : "rounded-l-full"
           }`}>
-          <p className="text-2xl">{fighterWealth}</p>
+          &nbsp;
         </div>
+        <p className="absolute text-2xl text-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          {fighterWealth}
+        </p>
       </div>
     </div>
   );
