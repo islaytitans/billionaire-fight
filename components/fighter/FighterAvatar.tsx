@@ -31,7 +31,7 @@ const FighterAvatar = ({
         <div
           className={`bg-green-400 w-[${currentWealth}%] h-8 ${
             currentWealth === 100 ? "rounded-full" : "rounded-l-full"
-          }`}>
+          } transition-width duration-500 ease-in-out`}>
           &nbsp;
         </div>
         <p className="absolute text-2xl text-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
