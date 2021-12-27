@@ -8,9 +8,9 @@ const useGetFightersService = () => {
   });
 
   useEffect(() => {
-    fetch("./data/fighters.json")
+    fetch("./api/fighters")
       .then((response) => response.json())
-      .then((response) => setResult({ status: "loaded", payload: response }))
+      .then((response) => setResult({ status: "loaded", payload: response.fighters }))
       .catch((error) => setResult({ status: error, error }));
   }, []);
 
