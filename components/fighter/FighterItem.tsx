@@ -51,26 +51,28 @@ const FighterItem = ({ fighter }: { fighter: Fighter }) => {
           className="rounded-t-xl"
         />
       </figure>
-      <section className="flex flex-col px-3">
-        <h2 className="text-3xl text-center">
-          {fighter.firstName + ' "' + fighter.nickname + '" ' + fighter.lastName}
-        </h2>
-        <div className="flex flex-col pt-2">
-          <span className="flex flex-row justify-between">
+      <section className="flex flex-col px-3 mt-2">
+        <h2 className="text-xl text-center">{fighter.firstName + " " + fighter.lastName}</h2>
+        <p className="text-center text-4xl mb-3">
+          <i>{fighter.nickname}</i>
+        </p>
+        <hr />
+        <div className="grid grid-cols-3 pt-4 mx-4">
+          <span className="col-span-3 flex flex-row justify-between mx-1">
+            <strong>Wealth</strong>
+            <i>${fighter.wealth}B</i>
+          </span>
+          <span className="flex flex-row justify-between mx-1">
             <strong>Strength</strong>
             <i>{fighter.strength}</i>
           </span>
-          <span className="flex flex-row justify-between">
+          <span className="flex flex-row justify-between mx-1">
             <strong>Defence</strong>
             <i>{fighter.defence}</i>
           </span>
-          <span className="flex flex-row justify-between">
+          <span className="flex flex-row justify-between mx-1">
             <strong>Speed</strong>
             <i>{fighter.speed}</i>
-          </span>
-          <span className="flex flex-row justify-between">
-            <strong>Wealth</strong>
-            <i>${fighter.wealth}B</i>
           </span>
         </div>
       </section>
