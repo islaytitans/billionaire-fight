@@ -1,4 +1,5 @@
 import Image from "next/image";
+import useHealthBar from "../../match/useHealthBar";
 import Fighter from "../../types/Fighter";
 
 const FighterAvatar = ({
@@ -8,10 +9,9 @@ const FighterAvatar = ({
   fighter: Fighter;
   fighterWealth: number | null;
 }) => {
-  let currentWealth;
-  if (fighterWealth !== null) {
-    currentWealth = Math.round((fighterWealth / fighter.wealth) * 100);
-  }
+  let wealthBarWidth = "";
+  let wealthPercent = 100;
+  [wealthPercent, wealthBarWidth] = useHealthBar(fighter.wealth, fighterWealth);
 
   return (
     <div className="grid grid-cols-3 items-center">
@@ -29,8 +29,8 @@ const FighterAvatar = ({
       <h2 className="col-span-2 text-xl px-1 py-0.5">{fighter.nickname}</h2>
       <div className="relative col-span-3 w-full bg-red-800 rounded-full h-8">
         <div
-          className={`bg-green-400 w-[${currentWealth}%] h-8 ${
-            currentWealth === 100 ? "rounded-full" : "rounded-l-full"
+          className={`bg-green-400 h-8 ${wealthBarWidth} ${
+            wealthPercent === 100 ? "rounded-full" : "rounded-l-full"
           } transition-width duration-500 ease-in-out`}>
           &nbsp;
         </div>
