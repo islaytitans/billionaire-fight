@@ -2,6 +2,7 @@ import { MouseEvent, useContext } from "react";
 import Fighter from "../../types/Fighter";
 import Image from "next/image";
 import { GameContext } from "../../context/GameContext";
+import { CashOutline, ShieldOutline, PlayForwardOutline, BarbellOutline } from "react-ionicons";
 
 const FighterItem = ({ fighter }: { fighter: Fighter }) => {
   const Game = useContext(GameContext);
@@ -61,17 +62,18 @@ const FighterItem = ({ fighter }: { fighter: Fighter }) => {
           <span className="col-span-3 flex flex-row justify-between mx-1">
             <strong>Wealth</strong>
             <i>${fighter.wealth}B</i>
+            <CashOutline></CashOutline>
           </span>
           <span className="flex flex-row justify-between mx-1">
-            <strong>Strength</strong>
+            <BarbellOutline></BarbellOutline>
             <i>{fighter.strength}</i>
           </span>
           <span className="flex flex-row justify-between mx-1">
-            <strong>Defence</strong>
+            <ShieldOutline></ShieldOutline>
             <i>{fighter.defence}</i>
           </span>
           <span className="flex flex-row justify-between mx-1">
-            <strong>Speed</strong>
+            <PlayForwardOutline></PlayForwardOutline>
             <i>{fighter.speed}</i>
           </span>
         </div>
