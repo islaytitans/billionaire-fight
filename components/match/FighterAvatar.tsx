@@ -1,5 +1,5 @@
 import Image from "next/image";
-import useHealthBar from "../../match/useHealthBar";
+import useWealthBar from "../../match/useWealthBar";
 import Fighter from "../../types/Fighter";
 
 const FighterAvatar = ({
@@ -9,9 +9,7 @@ const FighterAvatar = ({
   fighter: Fighter;
   fighterWealth: number | null;
 }) => {
-  let wealthBarWidth = "";
-  let wealthPercent = 100;
-  [wealthPercent, wealthBarWidth] = useHealthBar(fighter.wealth, fighterWealth);
+  const [wealthPercent, wealthBarWidth] = useWealthBar(fighter.wealth, fighterWealth);
 
   return (
     <div className="grid grid-cols-3 items-center">

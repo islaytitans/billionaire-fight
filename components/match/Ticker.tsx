@@ -3,7 +3,7 @@ import Fighter from "../../types/Fighter";
 import stringFormat from "../../extentions/stringFormat";
 import useDice from "../../match/useDice";
 import useModifier from "../../match/useModifier";
-import FighterAvatar from "../fighter/FighterAvatar";
+import FighterAvatar from "./FighterAvatar";
 import NoChosenFighters from "./NoChosenFighters";
 import Match from "../../types/Match";
 

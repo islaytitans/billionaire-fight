@@ -1,4 +1,4 @@
-const useHealthBar = (maxWealth: number, currentWealth: number | null): [number, string] => {
+const useWealthBar = (maxWealth: number, currentWealth: number | null): [number, string] => {
   const wealthPercentage =
     currentWealth === null ? 100 : Math.round((currentWealth / maxWealth) * 100);
 
@@ -313,4 +313,4 @@ const useHealthBar = (maxWealth: number, currentWealth: number | null): [number,
   return [wealthPercentage, wealthBarWidthClass];
 };
 
-export default useHealthBar;
+export default useWealthBar;
