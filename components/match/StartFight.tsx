@@ -16,7 +16,7 @@ const StartFight = () => {
   const fighter2 = Game.roster.getSelectedFighter2();
 
   return (
-    <aside className="fixed bottom-0 min-w-full bg-red-800 grid grid-cols-3 gap-4 px-72 py-2 text-4xl text-center tracking-widest text-yellow-300">
+    <aside className="fixed inset-x-0 bottom-0 min-w-full bg-red-800 grid grid-cols-3 gap-1 md:gap-4 px-1 md:px-72 py-2 text-xl md:text-4xl text-center tracking-widest text-yellow-300">
       <div>
         {fighter1 && (
           <>
@@ -35,7 +35,7 @@ const StartFight = () => {
           </>
         )}
       </div>
-      <p className="text-8xl">VS</p>
+      <p className="text-3xl md:text-8xl">VS</p>
       <div>
         {fighter2 && (
           <>
