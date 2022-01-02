@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const TitleCard = ({ title, enterText }: { title: string; enterText: string }) => {
   return (
-    <section className="flex flex-col items-center p-6 bg-red-600 text-yellow-300">
+    <section className="flex flex-col min-h-screen items-center p-6 bg-red-600 text-yellow-300">
       <figure className="">
         <Image src="/images/Logo.png" alt={title} width={600} height={80} />
       </figure>
