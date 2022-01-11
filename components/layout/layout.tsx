@@ -13,13 +13,6 @@ const Layout: FC = ({ children }) => {
     }
   }, [Game.roster, service.status]);
 
-  if (service.status === "loading") {
-    return <div>Loading...</div>;
-  }
-  if (service.status === "error") {
-    return <div>Failed to load fighters</div>;
-  }
-
   return (
     <Fragment>
       <Header />
