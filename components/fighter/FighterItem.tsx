@@ -37,7 +37,7 @@ const FighterItem = ({ fighter }: { fighter: Fighter }) => {
 
   return (
     <li
-      className="flex flex-col bg-gray-50 my-5 pb-3 rounded-xl shadow-lg shadow-red-600/30 hover:shadow-red-600/60"
+      className="flex flex-col transition bg-gray-50 my-5 pb-3 rounded-xl shadow-lg shadow-red-600/30 hover:shadow-red-600/60 hover:scale-105"
       data-id={fighter.id}
       onClick={handleOnClick}>
       {selected}

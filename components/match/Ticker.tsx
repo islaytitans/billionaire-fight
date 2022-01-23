@@ -6,6 +6,7 @@ import useModifier from "../../match/useModifier";
 import FighterAvatar from "./FighterAvatar";
 import NoChosenFighters from "./NoChosenFighters";
 import Match from "../../types/Match";
+import Link from "next/link";
 
 const Ticker = ({ fighter1, fighter2 }: { fighter1: Fighter | null; fighter2: Fighter | null }) => {
   const [fighter1Wealth, setFighter1Wealth] = useState<number | null>(fighter1?.wealth ?? null);
@@ -102,25 +103,30 @@ const Ticker = ({ fighter1, fighter2 }: { fighter1: Fighter | null; fighter2: Fi
   };
 
   return (
-    <section className="grid grid-cols-2 gap-2 p-2 my-10 text-center items-end bg-gray-50 rounded-xl shadow-lg shadow-red-600/30 space-y-10">
+    <section className="grid grid-cols-2 gap-2 md:gap-8 p-2 my-10 text-center items-end bg-gray-50 rounded-xl shadow-lg shadow-red-600/30 space-y-10">
       <FighterAvatar fighter={fighter1} fighterWealth={fighter1Wealth} />
       <FighterAvatar fighter={fighter2} fighterWealth={fighter2Wealth} />
-      <p className="col-span-2 text-3xl">{attack}</p>
+      <p className="col-span-2 text-3xl min-h-[80px]">{attack}</p>
       {!match.matchComplete && (
         <button
-          className="col-span-2 bg-red-600 rounded-full text-2xl text-yellow-400 py-1"
+          className="col-span-2 bg-red-600 hover:bg-red-800 rounded-full text-2xl text-yellow-400 py-1"
           onClick={handleRound}>
           {match.round > 1 ? "Next Round" : "Begin!"}
         </button>
       )}
       {match.matchComplete && (
-        <>
-          <p className="text-6xl text-red-600 col-span-2">{match.winner?.nickname} won!</p>
-          <p className="text-3xl col-span-2">
+        <div className="col-span-2">
+          <p className="text-6xl bg-red-600 text-yellow-400 rounded-md p-6 mb-2 animate-bounce">
+            {match.winner?.nickname} won!
+          </p>
+          <p className="text-md italic mb-2">
             ${match.totalWealthLost} billion was beaten out of them and donated to childrens
             hospitals and art graduates
           </p>
-        </>
+          <Link href="/fighters">
+            <a className="text-2xl hover:text-red-600">Back to the roster</a>
+          </Link>
+        </div>
       )}
     </section>
   );
