@@ -25,11 +25,11 @@ const FighterItem = ({ fighter }: { fighter: Fighter }) => {
   let selected;
   if (fighter.id === Game.players.player1Id) {
     selected = (
-      <p className="bg-red-600 text-center text-yellow-400 text-xl py-1 rounded-t-xl">Player 1</p>
+      <p className="rounded-t-xl bg-red-600 py-1 text-center text-xl text-yellow-400">Player 1</p>
     );
   } else if (fighter.id === Game.players.player2Id) {
     selected = (
-      <p className="bg-yellow-300 text-center text-red-600 text-xl py-1 rounded-t-xl">Player 2</p>
+      <p className="rounded-t-xl bg-yellow-300 py-1 text-center text-xl text-red-600">Player 2</p>
     );
   } else {
     selected = null;
@@ -37,7 +37,7 @@ const FighterItem = ({ fighter }: { fighter: Fighter }) => {
 
   return (
     <li
-      className="flex flex-col transition bg-gray-50 my-5 pb-3 rounded-xl shadow-lg shadow-red-600/30 hover:shadow-red-600/60 hover:scale-105"
+      className="my-5 flex flex-col rounded-xl bg-gray-50 pb-3 shadow-lg shadow-red-600/30 transition hover:scale-105 hover:shadow-red-600/60"
       data-id={fighter.id}
       onClick={handleOnClick}>
       {selected}
@@ -52,27 +52,27 @@ const FighterItem = ({ fighter }: { fighter: Fighter }) => {
           className="rounded-t-xl"
         />
       </figure>
-      <section className="flex flex-col px-3 mt-2">
-        <h2 className="text-xl text-center">{fighter.firstName + " " + fighter.lastName}</h2>
-        <p className="text-center text-4xl mb-3">
+      <section className="mt-2 flex flex-col px-3">
+        <h2 className="text-center text-xl">{fighter.firstName + " " + fighter.lastName}</h2>
+        <p className="mb-3 text-center text-4xl">
           <i>{fighter.nickname}</i>
         </p>
         <hr />
-        <div className="grid grid-cols-3 pt-4 mx-4">
-          <span className="col-span-3 flex flex-row justify-between mx-1">
+        <div className="mx-4 grid grid-cols-3 pt-4">
+          <span className="col-span-3 mx-1 flex flex-row justify-between">
             <strong>Wealth</strong>
             <i>${fighter.wealth}B</i>
             <CashOutline></CashOutline>
           </span>
-          <span className="flex flex-row justify-between mx-1">
+          <span className="mx-1 flex flex-row justify-between">
             <BarbellOutline></BarbellOutline>
             <i>{fighter.strength}</i>
           </span>
-          <span className="flex flex-row justify-between mx-1">
+          <span className="mx-1 flex flex-row justify-between">
             <ShieldOutline></ShieldOutline>
             <i>{fighter.defence}</i>
           </span>
-          <span className="flex flex-row justify-between mx-1">
+          <span className="mx-1 flex flex-row justify-between">
             <PlayForwardOutline></PlayForwardOutline>
             <i>{fighter.speed}</i>
           </span>

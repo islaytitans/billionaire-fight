@@ -103,23 +103,23 @@ const Ticker = ({ fighter1, fighter2 }: { fighter1: Fighter | null; fighter2: Fi
   };
 
   return (
-    <section className="grid grid-cols-2 gap-2 md:gap-8 p-2 my-10 text-center items-end bg-gray-50 rounded-xl shadow-lg shadow-red-600/30 space-y-10">
+    <section className="my-10 grid grid-cols-2 items-end gap-2 space-y-10 rounded-xl bg-gray-50 p-2 text-center shadow-lg shadow-red-600/30 md:gap-8">
       <FighterAvatar fighter={fighter1} fighterWealth={fighter1Wealth} />
       <FighterAvatar fighter={fighter2} fighterWealth={fighter2Wealth} />
-      <p className="col-span-2 text-3xl min-h-[80px]">{attack}</p>
+      <p className="col-span-2 min-h-[80px] text-3xl">{attack}</p>
       {!match.matchComplete && (
         <button
-          className="col-span-2 bg-red-600 hover:bg-red-800 rounded-full text-2xl text-yellow-400 py-1"
+          className="col-span-2 rounded-full bg-red-600 py-1 text-2xl text-yellow-400 hover:bg-red-800"
           onClick={handleRound}>
           {match.round > 1 ? "Next Round" : "Begin!"}
         </button>
       )}
       {match.matchComplete && (
         <div className="col-span-2">
-          <p className="text-6xl bg-red-600 text-yellow-400 rounded-md p-6 mb-2 animate-bounce">
+          <p className="mb-2 animate-bounce rounded-md bg-red-600 p-6 text-6xl text-yellow-400">
             {match.winner?.nickname} won!
           </p>
-          <p className="text-md italic mb-2">
+          <p className="text-md mb-2 italic">
             ${match.totalWealthLost} billion was beaten out of them and donated to childrens
             hospitals and art graduates
           </p>

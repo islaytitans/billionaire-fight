@@ -16,7 +16,7 @@ const StartFight = () => {
   const fighter2 = Game.roster.getSelectedFighter2();
 
   return (
-    <aside className="sticky inset-x-0 bottom-0 min-w-full bg-red-800 grid grid-cols-3 gap-1 md:gap-4 px-1 md:px-72 py-2 text-xl md:text-4xl text-center tracking-widest text-yellow-300">
+    <aside className="sticky inset-x-0 bottom-0 grid min-w-full grid-cols-3 gap-1 bg-red-800 px-1 py-2 text-center text-xl tracking-widest text-yellow-300 md:gap-4 md:px-72 md:text-4xl">
       <div>
         {fighter1 && (
           <>
@@ -55,14 +55,14 @@ const StartFight = () => {
         )}
       </div>
       {disable ? (
-        <div className="col-span-3 py-2 bg-red-600 border-gray-100 rounded-full opacity-50">
+        <div className="col-span-3 rounded-full border-gray-100 bg-red-600 py-2 opacity-50">
           Fight!
         </div>
       ) : (
         <div className="col-span-3">
           <Link href="/fight">
             <a>
-              <div className="py-2 bg-red-600 hover:bg-red-700 border-gray-100 rounded-full">
+              <div className="rounded-full border-gray-100 bg-red-600 py-2 hover:bg-red-700">
                 Fight!
               </div>
             </a>
